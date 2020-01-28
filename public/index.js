@@ -188,8 +188,11 @@ rentals.forEach(function (part, index) {
         this[index].price = this[index].price * 0.9;
         commission = this[index].price * 30 / 100
         insurance = commission / 2
-        treasury = 1
-        virtuo=commission/2-1
+        treasury = 1 * computeTime2(part)
+        virtuo = commission / 2 - 1
+        if (rentals.deductibleReduction == true) {
+            virtuo=virtuo+4
+        }
         console.log(this[index].price , insurance, treasury, virtuo);
     }
     else if (computeTime2(part) >= 4 && computeTime2(part) < 10) {
@@ -198,6 +201,9 @@ rentals.forEach(function (part, index) {
         insurance = commission / 2
         treasury = 1 * computeTime2(part)
         virtuo = commission / 2 - treasury
+        if (rentals.deductibleReduction == true) {
+            virtuo = virtuo + 4
+        }
         console.log(this[index].price, insurance,treasury,virtuo);
     }
     else if (computeTime2(part) >= 10) {
@@ -206,6 +212,9 @@ rentals.forEach(function (part, index) {
         insurance = commission / 2
         treasury = 1 * computeTime2(part)
         virtuo = commission / 2 - treasury
+        if (rentals.deductibleReduction == true) {
+            virtuo = virtuo + 4
+        }
         console.log(this[index].price, insurance, treasury, virtuo );
     }
     else {
@@ -213,6 +222,9 @@ rentals.forEach(function (part, index) {
         insurance = commission / 2
         treasury = 1 * computeTime2(part)
         virtuo = commission / 2 - treasury
+        if (rentals.deductibleReduction == true) {
+            virtuo = virtuo + 4
+        }
         console.log(this[index].price, insurance, treasury, virtuo);
     }
 },rentals);
