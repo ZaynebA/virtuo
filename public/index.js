@@ -177,17 +177,22 @@ function computeTime2(rental) {
 function computeDist(rental) {
     return rental.distance * cars.find(x => x.id === rental.carId).pricePerKm
 }
+
+
 rentals.forEach(function (part, index) {
     this[index].price = computeTime(part) + computeDist(part);
     console.log(computeTime2(part))
-    if (computeTime2(part) >1 && computeTime2(part) < 4) {
-        console.log(this[index].price * 0.9);
+    if (computeTime2(part) > 1 && computeTime2(part) < 4) {
+        this[index].price = this[index].price * 0.9;
+        console.log(this[index].price );
     }
     else if (computeTime2(part) >= 4 && computeTime2(part) < 10) {
-        console.log(this[index].price * 0.7);
+        this[index].price = this[index].price * 0.7;
+        console.log(this[index].price );
     }
     else if (computeTime2(part) >= 10) {
-        console.log(this[index].price * 0.5);
+        this[index].price = this[index].price * 0.5;
+        console.log(this[index].price );
     }
     else {
         console.log(this[index].price)
