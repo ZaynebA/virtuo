@@ -161,3 +161,19 @@ const actors = [{
 console.log(cars);
 console.log(rentals);
 console.log(actors);
+function computeTime(rental) {
+    var pickupdate = new Date(rental.pickupDate);
+    var returndate = new Date(rental.returnDate);
+    var nb = (returndate - pickupdate) / (1000 * 60 * 60 * 24) + 1;
+    //console.log(nb);
+    return nb * cars.find(x => x.id === rental.carId).pricePerDay;
+    
+
+}
+function computeDist(rental) {
+    return rental.distance * cars.find(x => x.id === rental.carId).pricePerKm
+}
+rentals.forEach(function (part, index) {
+    this[index].price = computeTime(part) + computeDist(part);
+    console.log(this[index].price)
+},rentals);
