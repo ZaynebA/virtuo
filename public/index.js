@@ -177,24 +177,42 @@ function computeTime2(rental) {
 function computeDist(rental) {
     return rental.distance * cars.find(x => x.id === rental.carId).pricePerKm
 }
-
-
+var insurance = 0;
+var commission = 0;
+var treasury = 0;
+var virtuo = 0;
 rentals.forEach(function (part, index) {
     this[index].price = computeTime(part) + computeDist(part);
     console.log(computeTime2(part))
     if (computeTime2(part) > 1 && computeTime2(part) < 4) {
         this[index].price = this[index].price * 0.9;
-        console.log(this[index].price );
+        commission = this[index].price * 30 / 100
+        insurance = commission / 2
+        treasury = 1
+        virtuo=commission/2-1
+        console.log(this[index].price , insurance, treasury, virtuo);
     }
     else if (computeTime2(part) >= 4 && computeTime2(part) < 10) {
         this[index].price = this[index].price * 0.7;
-        console.log(this[index].price );
+        commission = this[index].price * 30 / 100
+        insurance = commission / 2
+        treasury = 1 * computeTime2(part)
+        virtuo = commission / 2 - treasury
+        console.log(this[index].price, insurance,treasury,virtuo);
     }
     else if (computeTime2(part) >= 10) {
         this[index].price = this[index].price * 0.5;
-        console.log(this[index].price );
+        commission = this[index].price * 30 / 100
+        insurance = commission / 2
+        treasury = 1 * computeTime2(part)
+        virtuo = commission / 2 - treasury
+        console.log(this[index].price, insurance, treasury, virtuo );
     }
     else {
-        console.log(this[index].price)
+        commission = this[index].price * 30 / 100
+        insurance = commission / 2
+        treasury = 1 * computeTime2(part)
+        virtuo = commission / 2 - treasury
+        console.log(this[index].price, insurance, treasury, virtuo);
     }
 },rentals);
