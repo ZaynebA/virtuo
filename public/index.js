@@ -181,6 +181,7 @@ var insurance = 0;
 var commission = 0;
 var treasury = 0;
 var virtuo = 0;
+var deductible = 0;
 rentals.forEach(function (part, index) {
     this[index].price = computeTime(part) + computeDist(part);
     console.log(computeTime2(part))
@@ -190,8 +191,9 @@ rentals.forEach(function (part, index) {
         insurance = commission / 2
         treasury = 1 * computeTime2(part)
         virtuo = commission / 2 - 1
+        deductible = 4 * computeTime2(part)
         if (rentals.deductibleReduction == true) {
-            virtuo=virtuo+4
+            virtuo=virtuo+deductible
         }
         console.log(this[index].price , insurance, treasury, virtuo);
     }
@@ -201,8 +203,9 @@ rentals.forEach(function (part, index) {
         insurance = commission / 2
         treasury = 1 * computeTime2(part)
         virtuo = commission / 2 - treasury
+        deductible = 4 * computeTime2(part)
         if (rentals.deductibleReduction == true) {
-            virtuo = virtuo + 4
+            virtuo = virtuo + deductible
         }
         console.log(this[index].price, insurance,treasury,virtuo);
     }
@@ -212,8 +215,9 @@ rentals.forEach(function (part, index) {
         insurance = commission / 2
         treasury = 1 * computeTime2(part)
         virtuo = commission / 2 - treasury
+        deductible = 4 * computeTime2(part)
         if (rentals.deductibleReduction == true) {
-            virtuo = virtuo + 4
+            virtuo = virtuo + deductible
         }
         console.log(this[index].price, insurance, treasury, virtuo );
     }
@@ -222,8 +226,9 @@ rentals.forEach(function (part, index) {
         insurance = commission / 2
         treasury = 1 * computeTime2(part)
         virtuo = commission / 2 - treasury
+        deductible = 4 * computeTime2(part)
         if (rentals.deductibleReduction == true) {
-            virtuo = virtuo + 4
+            virtuo = virtuo + deductible
         }
         console.log(this[index].price, insurance, treasury, virtuo);
     }
